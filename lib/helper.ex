@@ -16,4 +16,9 @@ defmodule Helper do
     |> String.trim()
   end
 
+  def get_stringify_result(result) do
+    Enum.reduce(result, "", fn number, str_result ->
+      str_result <> Float.to_string(number) <> "\n"
+    end)
+  end
 end

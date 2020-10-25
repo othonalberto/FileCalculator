@@ -1,6 +1,10 @@
 defmodule Executor do
 
-  def calculate(operation_list) do
+  def calculate(lines) do
+    Enum.map(lines, fn line_operations -> String.split(line_operations, " ") |> calculateOne() end)
+  end
+
+  def calculateOne(operation_list) do
     [head | tail] = operation_list
 
     params = Enum.map(tail, fn x -> elem(Float.parse(x), 0) end)
