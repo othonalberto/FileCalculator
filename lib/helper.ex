@@ -1,10 +1,13 @@
 defmodule Helper do
 
+  @filePrefix "result_"
+  @separator "_"
+
   def build_filename(base_file_name) do
-    "result_"
-      <> get_stringify_date()
-      <> "_"
-      <> base_file_name
+    @filePrefix <>
+      get_stringify_date() <>
+      @separator <>
+      base_file_name
   end
 
   def get_stringify_date() do
